@@ -57,5 +57,11 @@ public class ContaCorrenteTest {
 
 		assertEquals(010035112040, conta.getNroConta());
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void deveRetornarErroParaRetiradanegativa() {
+		ContaCorrente conta = new ContaCorrente();
+		conta.retirada(-10);
+	}
 
 }

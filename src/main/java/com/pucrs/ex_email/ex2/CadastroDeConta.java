@@ -6,22 +6,59 @@ import com.pucrs.ex_email.ex1.ContaCorrente;
 
 public class CadastroDeConta {
 	ArrayList<ContaCorrente> contas = new ArrayList<ContaCorrente>();
-	
+	private boolean cadastrou;
+
+	public boolean isCadastrou() {
+		return cadastrou;
+	}
+
+	public void setCadastrou(boolean cadastrou) {
+		this.cadastrou = cadastrou;
+	}
+
 	public ArrayList<ContaCorrente> getContas() {
 		return contas;
 	}
-	
+
 	public boolean novaContaCorrente(ContaCorrente c) {
-		int flag = 0;
 		for (ContaCorrente contaCorrente : contas) {
-			if (c.getNroConta() != contaCorrente.getNroConta())
-				contas.add(c);
-			flag = 1;
+			if (c.getNroConta() == contaCorrente.getNroConta()) {
+				return false;
+			}
 		}
-		if (flag == 1) {
-			return true;
-		} else
-			return false;
+		contas.add(c);
+		return true;
 	}
 
+	public ContaCorrente getConta(int nroConta) {
+		for (ContaCorrente contaCorrente : contas) {
+			if (nroConta == contaCorrente.getNroConta()) {
+				return contaCorrente;
+			}
+		}
+		return null;
+	}
+
+	public double getSaldoTotal() {
+		double saldoTot = 0;
+		if (contas.isEmpty()) {
+			return saldoTot;
+		}
+		for (ContaCorrente contaCorrente : contas) {
+			saldoTot += contaCorrente.getSaldo();
+		}
+		return saldoTot;
+
+	}
+
+	public int qtdContas(double noMinimo) {
+		int qtdContas = 0;
+		for (ContaCorrente contaCorrente : contas) {
+			if (contaCorrente.getSaldo() >= noMinimo){
+				qtdContas ++;
+			}
+		}
+		
+		return qtdContas;
+	}
 }
