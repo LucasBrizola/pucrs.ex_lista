@@ -23,15 +23,16 @@ public class Plateau {
 	}
 
 	public void getBorders(char X, char Y) {
-		this.MaxX = X;
-		this.MaxY = Y;
+		this.MaxX = Integer.parseInt(String.valueOf(X));
+		this.MaxY = Integer.parseInt(String.valueOf(Y));
+
 	}
 	
 	public String getCoordinates() {
 		
 		String x = String.valueOf(getMaxX());
 		String y = String.valueOf(getMaxY());;
-		String xy = x+y;
+		String xy = x+" "+y;
 		return xy;
 	}
 }

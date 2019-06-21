@@ -9,6 +9,8 @@ import com.pucrs.ex_email.ex4.Rover;
 
 public class RoverTest {
 	int firstInput[];
+	
+	
 
 	@Before
 	public void setup() {
@@ -20,13 +22,13 @@ public class RoverTest {
 
 	@Test
 	public void ShouldShowWhereThePlateauFinishes() {
-		firstInput[0] = 5;
-		firstInput[1] = 5;
+		char secondInput = 'n';
 		Rover rover = new Rover();
-		rover.setActualCoordinates(firstInput[0], firstInput[1]);
+		rover.setActualCoordinates(firstInput[0], firstInput[1], secondInput);
 		
 		assertEquals(5, rover.getX());
 		assertEquals(5, rover.getY());
+		assertEquals('n', rover.getDirection());
 	}
 
 }

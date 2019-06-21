@@ -8,6 +8,9 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		Rover rover1 = new Rover();
+		Rover rover2 = new Rover();
+		Plateau mars = new Plateau();
 		Path coordinates = Paths.get("coordinates.txt");
 		String text = null;
 
@@ -22,13 +25,11 @@ public class Main {
 		String lines[] = text.split("\\r?\\n");
 
 		char[] textAsChar = lines[0].toCharArray();
-		
-		Plateau mars = new Plateau();
-		// parsear o char lines[0] para int
-		System.out.println(textAsChar[0]);
 		mars.getBorders(textAsChar[0], textAsChar[2]);
 		System.out.println(mars.getCoordinates() + " coordenadas");
-		System.out.println(mars.getMaxX());
+		textAsChar = lines[1].toCharArray();
+		rover1.setActualCoordinates(textAsChar[0], textAsChar[2], textAsChar[4]);
+		System.out.println(lines[1]);
 	}
 
 }

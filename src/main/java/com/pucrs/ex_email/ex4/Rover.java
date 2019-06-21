@@ -17,9 +17,10 @@ public class Rover {
 		return direction;
 	}
 
-	public void setActualCoordinates(int x, int y) {
+	public void setActualCoordinates(int x, int y, char direction) {
 		this.x = x;
 		this.y = y;
+		this.direction = direction;
 	}
 
 	public void setDirection(char dir) {
