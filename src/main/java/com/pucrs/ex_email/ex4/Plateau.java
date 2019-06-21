@@ -1,8 +1,8 @@
 package com.pucrs.ex_email.ex4;
 
 public class Plateau {
-	private int BottomX;
-	private int LeftY;
+	private int BottomX = 0;
+	private int LeftY = 0;
 	private int MaxX;
 	private int MaxY;
 
@@ -10,31 +10,28 @@ public class Plateau {
 		return BottomX;
 	}
 
-	public void setBottomX(int bottomX) {
-		BottomX = bottomX;
-	}
-
 	public int getLeftY() {
 		return LeftY;
-	}
-
-	public void setLeftY(int leftY) {
-		LeftY = leftY;
 	}
 
 	public int getMaxX() {
 		return MaxX;
 	}
 
-	public void setMaxX(int maxX) {
-		MaxX = maxX;
-	}
-
 	public int getMaxY() {
 		return MaxY;
 	}
 
-	public void setMaxY(int maxY) {
-		MaxY = maxY;
+	public void getBorders(char X, char Y) {
+		this.MaxX = X;
+		this.MaxY = Y;
+	}
+	
+	public String getCoordinates() {
+		
+		String x = String.valueOf(getMaxX());
+		String y = String.valueOf(getMaxY());;
+		String xy = x+y;
+		return xy;
 	}
 }

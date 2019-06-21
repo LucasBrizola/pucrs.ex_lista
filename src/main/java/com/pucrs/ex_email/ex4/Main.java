@@ -19,8 +19,16 @@ public class Main {
 			System.err.println("could not read file");
 			e.printStackTrace();
 		}
-		System.out.println(text);
+		String lines[] = text.split("\\r?\\n");
+
+		char[] textAsChar = lines[0].toCharArray();
 		
+		Plateau mars = new Plateau();
+		// parsear o char lines[0] para int
+		System.out.println(textAsChar[0]);
+		mars.getBorders(textAsChar[0], textAsChar[2]);
+		System.out.println(mars.getCoordinates() + " coordenadas");
+		System.out.println(mars.getMaxX());
 	}
 
 }
